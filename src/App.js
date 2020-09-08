@@ -1,12 +1,22 @@
 import React from 'react';
 import './App.css';
+import Display from './Display';
+import Body from './Body';
 
-function App() {
-  return (
-    <div className="App">
-   <h1>hello</h1>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <div className="App">
+        <Body
+        
+          
+        />
+        <Display
+  
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
