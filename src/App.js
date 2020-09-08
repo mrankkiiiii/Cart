@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Display from './Display';
 import Body from './Body';
 
 class App extends React.Component {
@@ -9,11 +8,9 @@ class App extends React.Component {
       <div className="App">
         <Body
         
-          
+
         />
-        <Display
-  
-        />
+        
       </div>
     );
   }

@@ -1,10 +1,64 @@
-/* .body{
+.body{
     display: flex;
     flex-direction: column;
-    height: 200px;
-    width: 200px;
+    height: 400px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    justify-content: flex-end;
+    background-color: coral;
+}
+.action-buttons{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
-    margin: 0px auto;
-    background-color: aliceblue;
-} */
+    margin: 20px;
+    border-radius: 50%;
+    height: 50%;
+    border: 5px solid blue;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: blueviolet;
+}
+.action-buttons .space{
+    position: absolute;
+    margin: 20%;
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    left: 6%;
+    background-color: #fff;
+}
+.action-buttons .btn{
+    width: 10px;
+    height: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.action-buttons .btn img{
+    height: 25px;
+    width: 30px;
+}
+.action-buttons .menu{
+  position: absolute;
+  top: 10%;
+  left: 38%;
+  color: #fff;
+}
+.action-buttons .next{
+    position: absolute;
+    top: 43%;
+    left: 76%;
+}
+.action-buttons .prev{
+    position: absolute;
+    top: 43%;
+    left: 1%;
+}
+.action-buttons .play{
+    position: absolute;
+    top: 80%;
+    left: 40%;
+}

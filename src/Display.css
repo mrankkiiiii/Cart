@@ -1,0 +1,10 @@
+.display{
+    box-sizing: border-box;
+    margin: 2% 2% 0 2%;
+    height: 50%;
+    background-image: url(https://wallpapercave.com/wp/wp3190622.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px solid black;
+}
