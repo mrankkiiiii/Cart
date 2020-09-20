@@ -1,10 +1,14 @@
 import React from 'react';
-// import '../assets/css/index.css'
+
 const CoverFlow = (props) => {
     return(
-        <div className="setting">
-            <div>
-            CoverFlow
+        <div className="coverflow">
+             <div className="topbar" >  
+                    <p>i-Pod</p>
+                    <img src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
+                </div>
+            <div className="coverflow-container">
+                <p>Cover Flow</p>
             </div>
         </div>
     );

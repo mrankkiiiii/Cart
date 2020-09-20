@@ -1,8 +1,6 @@
 import React from 'react';
 import '../assets/css/App.css';
 import Body from './Body';
-//to be able to use ZingTouch
-
 
 class App extends React.Component {
   

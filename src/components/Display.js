@@ -5,17 +5,24 @@ import Settings from './Settings';
 import Games from './Games';
 import Music from './Music';
 import CoverFlow from './CoverFlow';
+import Devotional from './Devotional';
+import AllSongs from './AllSongs';
+import Artists from './Artists';
+import Album from './Album';
 
 const Display = (props) => {
-    console.log('Display',props)
     return(
+        // Display all pages
         <div className="display">
-                {props.activePage==="Home"?<NavBar activeItem={props.activeItem}/> : null}
-                {props.activePage==='Music'?<Music activeItem={props.activeItem}/> : null}
-                {props.activePage==='Games'?<Games /> : null}
-                {props.activePage==='Settings'?<Settings /> : null}
-                {/* {this.props.activePage==='MyMusic'?<MyMusic audio={this.props.audio} /> : null} */}
-                {/* {this.props.activePage==='Artists'?<Artists /> : null} */}
+            {props.activePage==="Home"?<NavBar activeItem={props.activeItem}/> : null}
+            {props.activePage==='CoverFlow'?<CoverFlow activeItem={props.activeItem}/> : null}
+            {props.activePage==='Music'?<Music activeItem={props.activeItem}/> : null}
+            {props.activePage==='Games'?<Games /> : null}
+            {props.activePage==='Settings'?<Settings /> : null}
+            {props.activePage==='Devotional'?<Devotional /> : null}
+            {props.activePage==='Album'?<Album /> : null}
+            {props.activePage==='Artists'?<Artists /> : null}
+            {props.activePage==='AllSongs'?<AllSongs /> : null}
         </div>
     )
 }

@@ -5,7 +5,7 @@
     width: 400px;
     overflow: hidden;
     border-radius: 4%;
-    background-image:  linear-gradient(90deg, #37393d 0%, #4e4d52 74%);
+    background-image:  linear-gradient(-360deg, #37393d 20%, #4e4d52 74%);
 }
 #buttons{
     display: flex;
@@ -28,6 +28,7 @@
     left: 6%;
     background-color: rgb(88, 80, 80);
 }
+
 #buttons i{
     position: absolute;
     font-size: 2rem;
@@ -36,10 +37,10 @@
 }
 #buttons .menu{
     top: 8%;
-    left: 43%;
+    left: 44%;
 }
 #buttons .next{
-    top: 43%;
+    top: 44%;
     left: 81%;
 }
 #buttons .prev{
@@ -51,6 +52,7 @@
     left: 45%;
 }
 #buttons .ok{
-    top: 40%;
-    left: 38%;
+    font-size: 3rem;
+    top: 32%;
+    left: 34%;
 }

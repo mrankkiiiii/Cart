@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/Body.css'
 import Display from './Display';
+//to be able to use ZingTouch
 import ZingTouch from 'zingtouch'
 
 class Body extends React.Component {
@@ -8,7 +9,7 @@ class Body extends React.Component {
     constructor(){
         super();
         this.state = {
-            activePage : "Home",
+            activePage : "Devotional",
             activeItem : "CoverFlow",
             enter : 0
         }
@@ -18,32 +19,16 @@ class Body extends React.Component {
         var rotatebuttons = document.getElementById("buttons");
         var region = new ZingTouch.Region(rotatebuttons);
         var self= this;
+        var change = 0;
         this.state.enter = this.state.enter+1;
         if(this.state.enter<2)
         {
             region.bind(rotatebuttons, 'rotate', function(event) {
                 var newAngle = Math.floor(event.detail.distanceFromLast)
                 if(newAngle<0){
-                    if(self.state.activePage === "Home"){
-                            if(self.state.activeItem === 'CoverFlow'){
-                                self.setState({
-                                    activeItem : 'Music',
-                                });
-                            } else if(self.state.activeItem === 'Music'){
-                                self.setState({
-                                    activeItem : 'Games',
-                                });
-                            } else if(self.state.activeItem === 'Games'){
-                                self.setState({
-                                    activeItem : 'Settings',
-                                });
-                            } else if(self.state.activeItem === 'Settings'){
-                                self.setState({
-                                    activeItem : 'CoverFlow',
-                                });
-                            }
-                        }
-                    } else {
+                    change++;
+                    if(change==15){
+                        change = 0;
                         if(self.state.activePage === "Home"){
                                 if(self.state.activeItem === 'CoverFlow'){
                                     self.setState({
@@ -62,6 +47,67 @@ class Body extends React.Component {
                                         activeItem : 'CoverFlow',
                                     });
                                 }
+                            } else if(self.state.activePage === "Music"){
+                                if(self.state.activeItem === 'AllSongs'){
+                                    self.setState({
+                                        activeItem : 'Album',
+                                    });
+                                } else if(self.state.activeItem === 'Album'){
+                                    self.setState({
+                                        activeItem : 'Artists',
+                                    });
+                                } else if(self.state.activeItem === 'Artists'){
+                                    self.setState({
+                                        activeItem : 'Devotional',
+                                    });
+                                } else if(self.state.activeItem === 'Devotional'){
+                                    self.setState({
+                                        activeItem : 'AllSongs',
+                                    });
+                                }
+                            }
+                        }
+                    } else {
+                        change++;
+                        if(change==15){
+                            change = 0;
+                            if(self.state.activePage === "Home"){
+                                    if(self.state.activeItem === 'CoverFlow'){
+                                        self.setState({
+                                            activeItem : 'Music',
+                                        });
+                                    } else if(self.state.activeItem === 'Music'){
+                                        self.setState({
+                                            activeItem : 'Games',
+                                        });
+                                    } else if(self.state.activeItem === 'Games'){
+                                        self.setState({
+                                            activeItem : 'Settings',
+                                        });
+                                    } else if(self.state.activeItem === 'Settings'){
+                                        self.setState({
+                                            activeItem : 'CoverFlow',
+                                        });
+                                    }
+                                } else if(self.state.activePage === "Music"){
+                                    if(self.state.activeItem === 'AllSongs'){
+                                        self.setState({
+                                            activeItem : 'Album',
+                                        });
+                                    } else if(self.state.activeItem === 'Album'){
+                                        self.setState({
+                                            activeItem : 'Artists',
+                                        });
+                                    } else if(self.state.activeItem === 'Artists'){
+                                        self.setState({
+                                            activeItem : 'Devotional',
+                                        });
+                                    } else if(self.state.activeItem === 'Devotional'){
+                                        self.setState({
+                                            activeItem : 'AllSongs',
+                                        });
+                                    }
+                                }
                             }
                         }
                     });
@@ -71,16 +117,30 @@ class Body extends React.Component {
         }
 
     backToHome=()=>{
-        this.setState({
-            activeItem: this.state.activeItem,
-            activePage: "Home"
-        })
+        if(this.state.activeItem === 'Music' || this.state.activeItem === 'Artists' || this.state.activeItem === 'Album' || this.state.activeItem === 'Devotional' || this.state.activeItem === 'AllSongs'){
+            this.setState({
+                activeItem : 'Music',
+                activePage : "Home"
+            });
+        } else {
+            this.setState({
+                activeItem: this.state.activeItem,
+                activePage: "Home"
+            })
+        }
     }
     changePage =()=>{
-        this.setState({
-            activeItem: this.state.activeItem,
-            activePage: this.state.activeItem,
-        });
+            if(this.state.activeItem === 'Music'){
+                this.setState({
+                    activeItem : 'AllSongs',
+                    activePage : this.state.activeItem
+                });
+            } else {
+                this.setState({
+                    activeItem: this.state.activeItem,
+                    activePage: this.state.activeItem,
+                });
+            }
     }
     render () { 
         return(
