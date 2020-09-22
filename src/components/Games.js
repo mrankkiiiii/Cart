@@ -8,7 +8,6 @@ const Games = (props) => {
                     <img src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
             <div className="games-content">
-                
             </div>
         </div>
     );

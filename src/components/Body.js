@@ -9,7 +9,7 @@ class Body extends React.Component {
     constructor(){
         super();
         this.state = {
-            activePage : "Artists",
+            activePage : "AllSongs",
             activeItem : "CoverFlow",
             enter : 0
         }
