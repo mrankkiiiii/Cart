@@ -187,11 +187,11 @@ class Body extends React.Component {
                 />}
                 {/* I-Pod Buttons With ZingTouch */}
                 <div id="buttons" onMouseOver={this.rotateWheel}>
-                    <span onClick={this.backToHome}><i className="btn menu fas fa-home"></i></span>
-                    <span ><i className="btn prev fas fa-backward"></i></span>
-                    <span ><i className="btn next fas fa-forward"></i></span>
-                    <span onClick={this.toggle} ><i className="btn play fas fa-step-forward"></i></span>
-                    <span className="space" onClick={this.changePage}><i className="btn ok far fa-circle"></i></span>
+                    <span onClick={this.backToHome} title="Home"><i className="btn menu fas fa-home"></i></span>
+                    <span title="Previous" ><i className="btn prev fas fa-backward"></i></span>
+                    <span title="Forward"><i className="btn next fas fa-forward"></i></span>
+                    <span onClick={this.toggle} title="Play/Pause"><i className="btn play fas fa-step-forward"></i></span>
+                    <span className="space" onClick={this.changePage} title="OK"><i className="btn ok far fa-circle"></i></span>
                 </div>
             </div>
         )
