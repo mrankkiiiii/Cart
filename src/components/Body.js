@@ -10,7 +10,7 @@ class Body extends React.Component {
     constructor(){
         super();
         this.state = {
-            activePage : "AllSongs",
+            activePage : "Home",
             activeItem : "CoverFlow",
             enter : 0,
             play: true,
