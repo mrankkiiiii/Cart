@@ -3,6 +3,7 @@ import '../assets/css/Body.css'
 import Display from './Display';
 //to be able to use ZingTouch
 import ZingTouch from 'zingtouch'
+import song from '../assets/Music/Faded.mp3'
 
 class Body extends React.Component {
 
@@ -11,10 +12,11 @@ class Body extends React.Component {
         this.state = {
             activePage : "AllSongs",
             activeItem : "CoverFlow",
-            enter : 0
+            enter : 0,
+            play: true,
         }
     }
-    
+    // Zingtouch functioon for rotating functionality
     rotateWheel = () => {
         var rotatebuttons = document.getElementById("buttons");
         var region = new ZingTouch.Region(rotatebuttons);
@@ -115,20 +117,26 @@ class Body extends React.Component {
                 console.log('no enter');
             }
         }
-
+    // menu button for return to home
     backToHome=()=>{
-        if(this.state.activeItem === 'Music' || this.state.activeItem === 'Artists' || this.state.activeItem === 'Album' || this.state.activeItem === 'Devotional' || this.state.activeItem === 'AllSongs'){
+        if(this.state.activePage === 'Music' && (this.state.activeItem === 'Artists' || this.state.activeItem === 'Album' || this.state.activeItem === 'Devotional' || this.state.activeItem === 'AllSongs')){
             this.setState({
                 activeItem : 'Music',
                 activePage : "Home"
+            });
+        } else if(this.state.activeItem === 'Artists' || this.state.activeItem === 'Album' || this.state.activeItem === 'Devotional' || this.state.activeItem === 'AllSongs'){
+            this.setState({
+                activeItem: 'AllSongs',
+                activePage: 'Music'
             });
         } else {
             this.setState({
                 activeItem: this.state.activeItem,
                 activePage: "Home"
-            })
+            });
         }
     }
+    // function to enter in the particular component
     changePage =()=>{
             if(this.state.activeItem === 'Music'){
                 this.setState({
@@ -142,23 +150,51 @@ class Body extends React.Component {
                 });
             }
     }
+    // function to play pause the music
+    toggle = () =>{
+        if(this.state.activePage === "AllSongs"){
+            if(this.state.play === true){
+                this.state.audio.pause();
+                this.setState({
+                    play: false
+                });
+            } else {
+                this.state.audio.play();
+                this.setState({
+                    play: true
+                });
+            }
+        }
+    }
+    componentDidMount(){
+        let audio = document.getElementsByClassName('song')[0];
+        this.setState({
+            audio: audio
+        });
+    }
     render () { 
         return(
             <div className="body">
-                <Display
+                {/* Demo Audio for play */}
+               <audio className="song">
+                    <source src={song} type="audio/mp3"></source>    
+                </audio>
+                {/* Display Component */}
+                {this.state.audio && <Display
                 activeItem={this.state.activeItem}
                 activePage={this.state.activePage}
-                />
+                audio={this.state.audio}
+                />}
+                {/* I-Pod Buttons With ZingTouch */}
                 <div id="buttons" onMouseOver={this.rotateWheel}>
-                    <span onClick={this.backToHome}><i class="btn menu fas fa-home"></i></span>
-                    <span ><i class="btn prev fas fa-backward"></i></span>
-                    <span ><i class="btn next fas fa-forward"></i></span>
-                    <span ><i class="btn play fas fa-step-forward"></i></span>
-                    <span className="space" onClick={this.changePage}><i class="btn ok far fa-circle"></i></span>
+                    <span onClick={this.backToHome}><i className="btn menu fas fa-home"></i></span>
+                    <span ><i className="btn prev fas fa-backward"></i></span>
+                    <span ><i className="btn next fas fa-forward"></i></span>
+                    <span onClick={this.toggle} ><i className="btn play fas fa-step-forward"></i></span>
+                    <span className="space" onClick={this.changePage}><i className="btn ok far fa-circle"></i></span>
                 </div>
             </div>
         )
     }
  }
-
  export default Body;

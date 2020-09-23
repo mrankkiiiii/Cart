@@ -4,10 +4,12 @@ const Music = (props) => {
     console.log('Music',props)
     return(
         <div className="nav">
+            {/* Top bar */}
             <div className="topbar">  
                     <p>i-Pod</p>
                     <img style={styles.topNavImg} src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
                 </div>
+                {/* It contains all the componenet inside the Music components */}
             <ul className="nav-menu">
                 <li id="cover" className={props.activeItem==="AllSongs"? 'active' : ''}>
                     <span><i class="fas fa-music"></i></span>All Songs

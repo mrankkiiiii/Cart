@@ -22,7 +22,7 @@ const Display = (props) => {
             {props.activePage==='Devotional'?<Devotional /> : null}
             {props.activePage==='Album'?<Album /> : null}
             {props.activePage==='Artists'?<Artists /> : null}
-            {props.activePage==='AllSongs'?<AllSongs /> : null}
+            {props.activePage==='AllSongs'?<AllSongs audio={props.audio}/> : null}
         </div>
     )
 }

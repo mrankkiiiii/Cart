@@ -3,10 +3,12 @@ import image from '../assets/images/personal.jpg';
 const Artists = (props) => {
     return(
         <div className="artists">
+            {/* Top bar */}
             <div className="topbar" >  
                     <p>i-Pod</p>
                     <img src="https://image.flaticon.com/icons/svg/3103/3103446.svg"></img>
             </div>
+            {/* Artists information but currently it conatains mine 😄 */}
             <div className="artists-container">
                 <div className="owner">
                     <div className="owner-image">
